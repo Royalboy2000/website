@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>XMLHttpRequest</title>
+    <title>XMLHttpRequest Example</title>
 </head>
 <body>
     <script>
@@ -18,7 +18,24 @@
         };
 
         // Initialize the request with the HTTP method and URL
-        xhttp.open("GET", "https://sgw.prod.cloud.netflix.com/", true);
+        xhttp.open("GET", "https://sgw.prod.cloud.netflix.com", true);
+
+        // Set the required headers
+        xhttp.setRequestHeader("Sec-Ch-Ua", "\"Not/A)Brand\";v=\"8\", \"Chromium\";v=\"126\"");
+        xhttp.setRequestHeader("Sec-Ch-Ua-Mobile", "?0");
+        xhttp.setRequestHeader("Sec-Ch-Ua-Platform", "\"Linux\"");
+        xhttp.setRequestHeader("Accept-Language", "en-US");
+        xhttp.setRequestHeader("Upgrade-Insecure-Requests", "1");
+        xhttp.setRequestHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.57 Safari/537.36");
+        xhttp.setRequestHeader("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7");
+        xhttp.setRequestHeader("Sec-Fetch-Site", "none");
+        xhttp.setRequestHeader("Sec-Fetch-Mode", "navigate");
+        xhttp.setRequestHeader("Sec-Fetch-User", "?1");
+        xhttp.setRequestHeader("Sec-Fetch-Dest", "document");
+        xhttp.setRequestHeader("Origin", "https://royalboy2000.github.io");
+        xhttp.setRequestHeader("Accept-Encoding", "gzip, deflate, br");
+        xhttp.setRequestHeader("Priority", "u=0, i");
+        xhttp.setRequestHeader("Connection", "keep-alive");
 
         // Include credentials (cookies, authorization headers, etc.) with the request
         xhttp.withCredentials = true;
