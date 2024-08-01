@@ -1,1 +1,30 @@
-<h1> hii </h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+    <script>
+        // Create a new XMLHttpRequest object
+        var xhttp = new XMLHttpRequest();
+
+        // Define a callback function to be executed when the request completes
+        xhttp.onreadystatechange = function() {
+            // Check if the request is complete and was successful
+            if (this.readyState === 4 && this.status === 200) {
+                // Alert the response text from the server
+                alert(xhttp.responseText);
+            }
+        };
+
+        // Initialize the request with the HTTP method and URL
+        xhttp.open("GET", "sgw.prod.cloud.netflix.com", true);
+
+        // Include credentials (cookies, authorization headers, etc.) with the request
+        xhttp.withCredentials = true;
+
+        // Send the request to the server
+        xhttp.send();
+    </script>
+</body>
+</html>
